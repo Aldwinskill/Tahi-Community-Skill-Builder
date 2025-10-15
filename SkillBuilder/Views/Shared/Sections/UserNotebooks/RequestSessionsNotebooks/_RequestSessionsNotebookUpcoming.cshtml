@@ -32,7 +32,6 @@ else
     </div>
     <span class="support-status-badge status-confirmed">Confirmed</span>
     <div class="user-support-confirm-details">
-        Platform: <strong>@request.MeetingPlatform ?? "TBD"</strong><br />
         @if (!string.IsNullOrWhiteSpace(request.MeetingLink))
                 {
                     <a href="@request.MeetingLink" target="_blank">Join Link</a>
