@@ -3,6 +3,7 @@
 @{
     var isApproved = User.FindFirst("IsApproved")?.Value == "True";
     var isVerified = User.FindFirst("IsVerified")?.Value == "True";
+    var isDeactivated = User.FindFirst("IsDeactivated")?.Value == "True";
 }
 
 <style>
@@ -179,7 +180,13 @@
                     Share your knowledge and skills with students around the world.
                 </p>
 
-                @if (isApproved && isVerified)
+                @if (isDeactivated)
+                {
+                    <a class="btn-primary full-width" style="text-decoration: none; background-color:#ccc; cursor:not-allowed; opacity:0.6; pointer-events:none;">
+                        Account is currently deactivated. Cannot create course.
+                    </a>
+                }
+                else if (isApproved && isVerified)
                 {
                     <a href="/ArtisanActions/CreateCourse" class="btn-primary full-width" style="text-decoration: none;">
                         + Create course
@@ -203,7 +210,13 @@
                     Start sharing your expertise with learners worldwide.
                 </p>
 
-                @if (isApproved && isVerified)
+                @if (isDeactivated)
+                {
+                    <a class="btn-primary full-width" style="text-decoration: none; background-color:#ccc; cursor:not-allowed; opacity:0.6; pointer-events:none;">
+                        Account is currently deactivated. Cannot create course.
+                    </a>
+                }
+                else if (isApproved && isVerified)
                 {
                     <a href="/ArtisanActions/CreateCourse" class="btn-primary full-width" style="text-decoration: none;">
                         + Create course
