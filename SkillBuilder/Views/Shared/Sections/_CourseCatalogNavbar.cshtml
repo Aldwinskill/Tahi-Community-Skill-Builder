@@ -1,4 +1,4 @@
-﻿@{
+@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
     var userId = User.FindFirst("UserId")?.Value;
@@ -438,7 +438,7 @@
             var isApproved = User.FindFirst("IsApproved")?.Value == "True";
             var isVerified = User.FindFirst("IsVerified")?.Value == "True";
             var isDeactivated = User.FindFirst("IsDeactivated")?.Value == "True";
-        
+
             if (isDeactivated)
             {
                 <a class="navbar-item create-course-btn disabled" style="pointer-events:none; opacity:0.5;">
@@ -458,7 +458,6 @@
                 </a>
             }
         }
-
         
         <div class="notification-wrapper">
             <a href="javascript:void(0);" class="navbar-item nav-notification-icon" onclick="toggleNotificationDropdown()" style="display: @(User.Identity.IsAuthenticated ? "inline-block" : "none"); position: relative;">
