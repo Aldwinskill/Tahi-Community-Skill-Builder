@@ -361,7 +361,7 @@ namespace SkillBuilder.Controllers
                 .Where(s => s.Course != null &&
                             s.Course.CreatedBy == artisanId &&
                             s.Status == "Confirmed" &&
-                            s.SessionDate >= DateTime.Today)
+                            s.SessionDate >= DateTime.UtcNow.Date)
                 .OrderBy(s => s.SessionDate)
                 .ToList();
 
