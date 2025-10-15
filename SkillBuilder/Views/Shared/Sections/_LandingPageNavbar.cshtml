@@ -458,8 +458,15 @@
         {
             var isApproved = User.FindFirst("IsApproved")?.Value == "True";
             var isVerified = User.FindFirst("IsVerified")?.Value == "True";
-
-            if (isApproved && isVerified)
+            var isDeactivated = User.FindFirst("IsDeactivated")?.Value == "True";
+        
+            if (isDeactivated)
+            {
+                <a class="navbar-item create-course-btn disabled" style="pointer-events:none; opacity:0.5;">
+                    Account Deactivated - Cannot Create Course
+                </a>
+            }
+            else if (isApproved && isVerified)
             {
                 <a href="/ArtisanActions/CreateCourse" class="navbar-item create-course-btn">
                     Create Course
