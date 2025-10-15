@@ -1,11 +1,10 @@
-﻿@model SkillBuilder.Models.ViewModels.ArtisanProfileViewModel
+@model SkillBuilder.Models.ViewModels.ArtisanProfileViewModel
 
 @{
     var isApproved = User.FindFirst("IsApproved")?.Value == "True";
     var isVerified = User.FindFirst("IsVerified")?.Value == "True";
     var isDeactivated = User.FindFirst("IsDeactivated")?.Value == "True";
 }
-
 
 <style>
     .artisan-courses-section {
